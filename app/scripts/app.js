@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'ngDroplet'
   ])
   .constant('MONGOLAB_API_KEY', '8uHmSZH355k-nFgXmWDAsHT_GTvmsATk')
   .constant('MONGOLAB_DATABASE', 'lumiata-foosball')
