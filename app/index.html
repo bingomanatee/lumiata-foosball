@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="lumiataFoosballApp" layout="column" ng-controller="AppCtrl">
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<md-toolbar hide-gt-md>
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" ng-click="toggleLeft()" aria-label="Settings">
+      <i class="fa fa-ellipsis-v"></i>
+    </md-button>
+    <h2>
+      <span>Lumiata-foosball</span>
+    </h2>
+    <span flex></span>
+  </div>
+</md-toolbar>
+
+<section flex layout="row">
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Sidenav Left</h1>
+    </md-toolbar>
+    <md-content layout-padding ng-controller="LeftCtrl">
+      <md-button ng-click="close()" class="md-primary" hide-gt-md>
+        Close Sidenav Left
+      </md-button>
+      <md-list>
+        <md-list-item>
+          <md-button href="#/" ng-click="close()">Home</md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button href="#players" ng-click="close()" >Players</md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button href="#game"ng-click="close()" >Record a Game</md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button href="#history"ng-click="close()" >History</md-button>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </md-sidenav>
+  <div ng-view="" class="view-frame" flex></div>
+</section>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+  !function (A, n, g, u, l, a, r) {
+    A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+        (A[l].q = A[l].q || []).push(arguments)
+      }, A[l].l = +new Date, a = n.createElement(g),
+      r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+  }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+</script>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about.js"></script>
+<script src="scripts/controllers/players.js"></script>
+<script src="scripts/services/players.js"></script>
+<script src="scripts/controllers/game.js"></script>
+<script src="scripts/directives/foosballtable.js"></script>
+<script src="scripts/services/simsize.js"></script>
+<script src="scripts/services/eventemitter.js"></script>
+<script src="scripts/services/lodash.js"></script>
+<script src="scripts/directives/tableplayerslot.js"></script>
+<script src="scripts/services/games.js"></script>
+<script src="scripts/controllers/history.js"></script>
+<!-- endbuild -->
+</body>
+</html>
