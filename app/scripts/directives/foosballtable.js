@@ -13,7 +13,7 @@ angular.module('lumiataFoosballApp')
       restrict: 'E',
       link: function postLink($scope, element) {
 
-        function _slots(){
+        function _slots() {
           return [
             {number: 1, player: '(none)'},
             {number: 2, player: '(none)'},
@@ -32,13 +32,63 @@ angular.module('lumiataFoosballApp')
           });
         });
 
-        $scope.saveGame = function(){
+        //@TODO: make game a self contained class
+
+        function _hasPlayer(slots) {
+          return lodash.reject(slots, function (slot) {
+            return slot.player === '(none)';
+          }).length;
+        }
+
+        function _watchSlots() {
+          console.log('watchSlots')
+          var slots = $scope.topSlots.concat($scope.bottomSlots);
+          var groups = lodash.groupBy(slots, function (p) {
+            return p.player;
+          });
+
+          lodash.each(groups, function (items, key) {
+            groups[key] = items.length;
+          });
+          console.log('groups for watch: ', groups);
+
+          $scope.saveable = _hasPlayer($scope.topSlots) && _hasPlayer($scope.bottomSlots);
+          lodash.each(slots, function (slot) {
+            if (slot.player == '(none)') {
+              return;
+            }
+            var count = groups[slot.player];
+
+            if (count == 1) {
+              if (slot.duplicate) {
+                slot.duplicate = false;
+              }
+            } else {
+              $scope.saveable = false;
+              if (!slot.duplicate) {
+                slot.duplicate = true;
+              }
+            }
+          });
+
+        }
+
+        $scope.updateGame = _watchSlots;
+
+        $scope.$watch('topSlots[0].player', _watchSlots('top'));
+        $scope.$watch('topSlots[1].player', _watchSlots('top'));
+        $scope.$watch('topSlots[2].player', _watchSlots('top'));
+        $scope.$watch('bottomSlots[0].player', _watchSlots('bottom'));
+        $scope.$watch('bottomSlots[1].player', _watchSlots('bottom'));
+        $scope.$watch('bottomSlots[2].player', _watchSlots('bottom'));
+
+        $scope.saveGame = function () {
 
           Games.add({
             team1: lodash.pluck($scope.topSlots, 'player'),
             team2: lodash.pluck($scope.bottomSlots, 'player'),
             winner: $scope.winningTeamNumber
-          }, function(){
+          }, function () {
             $mdToast.show(
               $mdToast.simple()
                 .content('Game Saved!')
@@ -52,7 +102,7 @@ angular.module('lumiataFoosballApp')
           $scope.selectTeam(0);
         };
 
-        $scope.winClass = function(n){
+        $scope.winClass = function (n) {
           if ($scope.winningTeamNumber) {
             if ($scope.winningTeamNumber === n) {
               return 'selected';
@@ -73,8 +123,8 @@ angular.module('lumiataFoosballApp')
             $scope.winClass1 = $scope.winClass2 = '';
           } else {
             $scope.winningTeamNumber = n;
-            $scope.winClass1 = (n === 1) ? 'selected': 'unselected';
-            $scope.winClass2 = (n === 2) ? 'selected': 'unselected';
+            $scope.winClass1 = (n === 1) ? 'selected' : 'unselected';
+            $scope.winClass2 = (n === 2) ? 'selected' : 'unselected';
           }
         };
       }

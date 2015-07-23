@@ -9,10 +9,7 @@
 angular.module('lumiataFoosballApp')
   .directive('avatarUpload', function () {
     return {
-      template: '<!-- droplet style="border: 2px dotted blue;  padding: 2rem; display: block" ng-model="interface" ng-model="newPlayer.avatarDroplet" -->' +
-      '<input type="file" name="avatar-file" class="avatar-file" ng-model="player.avatarData">' +
-      '<input type="hidden" class="avatar-file-data" ng-model="player.avatarFileData" name="avatarFileData" />' +
-      '<!--Drag Files Here --><!--/droplet -->',
+      templateUrl : '/views/avatarUpload.html',
       restrict: 'E',
       link: function postLink(scope, element) {
         scope.interface = {};

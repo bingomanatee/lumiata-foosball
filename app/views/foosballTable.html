@@ -11,11 +11,15 @@
       </table-player-slot>
     </div>
     <div flex class="field" layout layout-align="center center">
-      <div class="winner" ng-if="winningTeamNumber" flex="80">
+      <div class="winner" ng-if="winningTeamNumber && saveable" flex="80">
         Winner: Team {{winningTeamNumber}}!
         <div>
           <md-button class="md-raised md-primary" ng-click="saveGame()">Save Game</md-button>
         </div>
+      </div>
+      <div class="error" ng-if="winningTeamNumber && (!saveable)">
+        <p layout layout-align="center center">
+          <span>Make sure both teams have at least one player and each player is used only once.</span></p>
       </div>
       <div class="instructions" ng-if="!winningTeamNumber">
         <p layout layout-align="center center"><span>Set the names of the people on each side

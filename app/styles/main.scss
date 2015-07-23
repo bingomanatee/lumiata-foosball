@@ -2,6 +2,7 @@
 // endbower
 
 $winnerColor: #77bb00;
+$errorText: #ce002d;
 
 .browsehappy {
   margin: 0.2em 0;
@@ -36,10 +37,17 @@ md-sidenav md-content {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    table-player-slot {
+      .inner.duplicate {
+        border: 2px dotted $errorText !important;
+        background-color: #ff9fab !important;
+      }
+    }
     .selected {
       table-player-slot {
         .inner {
           background-color: lighten($winnerColor, 20);
+
         }
       }
       .team-select .md-button {
@@ -71,6 +79,16 @@ md-sidenav md-content {
           padding: 1rem;
         }
       }
+
+      .error {
+        padding: 2rem;
+        p span {
+          background-color: rgba(255, 255, 255, 0.7);
+          padding: 1rem;
+          color: $errorText;
+          font-weight: bold;
+        }
+      }
     }
 
     table-player-slot {
@@ -85,7 +103,7 @@ md-sidenav md-content {
   }
 }
 
-.team-small{
+.team-small {
   &.selected button.md-button {
     background-color: $winnerColor !important;
   }

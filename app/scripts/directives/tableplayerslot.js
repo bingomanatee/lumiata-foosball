@@ -9,15 +9,15 @@
 angular.module('lumiataFoosballApp')
   .directive('tablePlayerSlot', function (Players) {
     return {
-      template: '<div class="inner"><md-select ng-if="players" ng-model="slot.player">' +
-      '<md-option value="(none)">(None)</md-option>' +
-      '<md-option ng-repeat="player in players" value="{{player.name}}">{{player.name}}</md-option>' +
-      '</md-select></div>',
+      templateUrl: '/views/tablePlayerSlot.html',
       restrict: 'E',
       scope: {slot: '='},
       link: function postLink(scope) {
 
         scope.players = false;
+        scope.updateGame = function(){
+          scope.$parent.$parent.updateGame();
+        };
 
         Players.query(function (players) {
           scope.players = players;
