@@ -75,7 +75,7 @@ angular.module('lumiataFoosballApp')
       } else {
         winner = 2;
       }
-      debugger;
+
       var startTime = new Date($scope.startDate).getTime();
       var endTime = new Date($scope.endDate).getTime();
       var start = Math.min(startTime, endTime);
