@@ -11,7 +11,7 @@ angular.module('lumiataFoosballApp')
     return {
       templateUrl: '/views/tablePlayerSlot.html',
       restrict: 'E',
-      scope: {slot: '='},
+      scope: {slot: '=', raised: '='},
       link: function postLink(scope) {
 
         scope.players = false;

@@ -4,6 +4,11 @@
 $winnerColor: #77bb00;
 $errorText: #ce002d;
 
+@mixin errorBox {
+  border: 2px dotted $errorText !important;
+  background-color: #ff9fab !important;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -30,7 +35,6 @@ md-sidenav md-content {
   .foosball-table {
     width: 80%;
     max-width: 60rem;
-    border: 2px solid black;
     height: 50%;
     max-height: 45rem;
     background-image: url('/images/table.png');
@@ -39,8 +43,7 @@ md-sidenav md-content {
     background-position: center;
     table-player-slot {
       .inner.duplicate {
-        border: 2px dotted $errorText !important;
-        background-color: #ff9fab !important;
+        @include errorBox;
       }
     }
     .selected {
@@ -98,6 +101,11 @@ md-sidenav md-content {
         text-align: center;
         padding: 0.5rem;
         background-color: rgba(255, 255, 255, 0.9);
+
+        md-select-label {
+          width: 90%;
+          min-width: 8rem;
+        }
       }
     }
   }
@@ -106,5 +114,23 @@ md-sidenav md-content {
 .team-small {
   &.selected button.md-button {
     background-color: $winnerColor !important;
+  }
+
+  md-list-item.duplicate {
+    @include errorBox;
+  }
+
+  md-subheader .error {
+    color: $errorText !important;
+  }
+  md-select-label {
+    min-width: 25rem;
+  }
+}
+
+.player-ticket {
+  .label {
+    font-weight: bold;
+    text-align: right;
   }
 }

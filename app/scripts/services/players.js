@@ -17,6 +17,7 @@ angular.module('lumiataFoosballApp')
 
     return $resource(url, {id: '@id'}, {
       query: {method: 'GET', isArray: true},
+      get: {method: 'GET', url:url + '/:id', params: {id: '@id'}},
       destroy: {method: 'DELETE', url: url + '/:id', params: {id: '@id'}}
     });
 

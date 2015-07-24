@@ -48,6 +48,11 @@ angular
         controller: 'HistoryCtrl',
         controllerAs: 'history'
       })
+      .when('/players/:id', {
+        templateUrl: 'views/playerticket.html',
+        controller: 'PlayerticketCtrl',
+        controllerAs: 'playerTicket'
+      })
       .otherwise({
         redirectTo: '/'
       });

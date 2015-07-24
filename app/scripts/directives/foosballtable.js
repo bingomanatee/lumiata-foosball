@@ -34,6 +34,8 @@ angular.module('lumiataFoosballApp')
 
         //@TODO: make game a self contained class
 
+        //@TODO: use saveable to block saving game at controller
+
         function _hasPlayer(slots) {
           return lodash.reject(slots, function (slot) {
             return slot.player === '(none)';

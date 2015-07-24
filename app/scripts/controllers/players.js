@@ -41,7 +41,7 @@ angular.module('lumiataFoosballApp')
     $scope.createPlayer = function () {
         $scope.resetPlayerForm();
         $scope.newPlayer = {
-          name: 'new player',
+          name: '',
           id: ++playerId
         };
     };

@@ -7,7 +7,7 @@ Players</span></h1>
 
 <md-card class="new-player-form" style="max-width: 60rem">
   <md-toolbar>
-    <h3 layout layout-align="center center" class="md-headline"> <span>Add a player to the registry</span></h3>
+    <h3 layout layout-align="center center" class="md-headline"><span>Add a player to the registry</span></h3>
   </md-toolbar>
   <md-card-content>
     <form name="newPlayerForm" enctype="multipart/form-data">
@@ -34,6 +34,13 @@ Players</span></h1>
 <md-list ng-if="players.length">
   <md-subheader class="md-no-sticky">Players</md-subheader>
   <md-list-item ng-repeat="player in players">
-    <p> {{ player.name }} </p>
+    <p layout="row" layout-padding>
+        <span flex style="min-width:10rem">
+          {{ player.name }} ({{ player.rank }}) -- {{player.games.length }} games
+        </span>
+        <span style="width: 10rem">
+          <md-button class="md-raised" href="#/players/{{ player._id}}">Detail</md-button>
+        </span>
+    </p>
   </md-list-item>
 </md-list>
