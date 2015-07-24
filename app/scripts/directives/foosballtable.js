@@ -43,7 +43,6 @@ angular.module('lumiataFoosballApp')
         }
 
         function _watchSlots() {
-          console.log('watchSlots')
           var slots = $scope.topSlots.concat($scope.bottomSlots);
           var groups = lodash.groupBy(slots, function (p) {
             return p.player;
@@ -56,12 +55,12 @@ angular.module('lumiataFoosballApp')
 
           $scope.saveable = _hasPlayer($scope.topSlots) && _hasPlayer($scope.bottomSlots);
           lodash.each(slots, function (slot) {
-            if (slot.player == '(none)') {
+            if (slot.player === '(none)') {
               return;
             }
             var count = groups[slot.player];
 
-            if (count == 1) {
+            if (count === 1) {
               if (slot.duplicate) {
                 slot.duplicate = false;
               }

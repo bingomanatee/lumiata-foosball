@@ -10,6 +10,8 @@
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/mdi/materialdesignicons.css" />
+  <link rel="stylesheet" href="bower_components/angular-material-components/dist/angular-material-components.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -57,6 +59,9 @@
         <md-list-item>
           <md-button href="#history"ng-click="close()" >History</md-button>
         </md-list-item>
+        <md-list-item>
+          <md-button href="#tournament"ng-click="close()" >Tournament</md-button>
+        </md-list-item>
       </md-list>
     </md-content>
   </md-sidenav>
@@ -88,7 +93,8 @@
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
-<script src="bower_components/ng-droplet/dist/ng-droplet.min.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-material-components/dist/angular-material-components.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -108,6 +114,7 @@
 <script src="scripts/controllers/history.js"></script>
 <script src="scripts/directives/avatarupload.js"></script>
 <script src="scripts/controllers/playerticket.js"></script>
+<script src="scripts/controllers/tournament.js"></script>
 <!-- endbuild -->
 </body>
 </html>

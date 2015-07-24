@@ -28,7 +28,7 @@ angular.module('lumiataFoosballApp')
              player.avatarImage = null;
            }
           }
-        })
+        });
       });
     }
 

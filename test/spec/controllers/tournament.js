@@ -1,22 +1,23 @@
 'use strict';
 
-xdescribe('Controller: PlayerticketCtrl', function () {
+describe('Controller: TournamentCtrl', function () {
 
   // load the controller's module
   beforeEach(module('lumiataFoosballApp'));
 
-  var PlayerticketCtrl,
+  var TournamentCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    PlayerticketCtrl = $controller('PlayerticketCtrl', {
+    TournamentCtrl = $controller('TournamentCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
-  it('has no tests', function () {
+  it('should attach a list of awesomeThings to the scope', function () {
+    expect(TournamentCtrl.awesomeThings.length).toBe(3);
   });
 });

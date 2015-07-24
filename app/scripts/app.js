@@ -17,7 +17,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngMaterial',
-    'ngDroplet'
+    'ngMaterial.components'
   ])
   .constant('MONGOLAB_API_KEY', '8uHmSZH355k-nFgXmWDAsHT_GTvmsATk')
   .constant('MONGOLAB_DATABASE', 'lumiata-foosball')
@@ -52,6 +52,11 @@ angular
         templateUrl: 'views/playerticket.html',
         controller: 'PlayerticketCtrl',
         controllerAs: 'playerTicket'
+      })
+      .when('/tournament', {
+        templateUrl: 'views/tournament.html',
+        controller: 'TournamentCtrl',
+        controllerAs: 'tournament'
       })
       .otherwise({
         redirectTo: '/'

@@ -31,7 +31,7 @@ angular.module('lumiataFoosballApp')
 
         var lastId = 0;
         scope.$watch('newPlayer', function(p){
-          if (p && p.id != lastId){
+          if (p && p.id !== lastId){
             element.find('.avatar.file').val('');
             element.find('.avatar-file-upload').val();
             lastId = p.id;
