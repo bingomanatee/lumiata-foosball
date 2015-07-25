@@ -35,6 +35,8 @@ module.exports = function(config) {
       'bower_components/moment/moment.js',
       'bower_components/angular-material-components/dist/angular-material-components.js',
       'bower_components/raphael/raphael.js',
+      'bower_components/angular-timeago/src/timeAgo.js',
+      'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

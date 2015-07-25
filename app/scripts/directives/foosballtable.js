@@ -51,7 +51,6 @@ angular.module('lumiataFoosballApp')
           lodash.each(groups, function (items, key) {
             groups[key] = items.length;
           });
-          console.log('groups for watch: ', groups);
 
           $scope.saveable = _hasPlayer($scope.topSlots) && _hasPlayer($scope.bottomSlots);
           lodash.each(slots, function (slot) {

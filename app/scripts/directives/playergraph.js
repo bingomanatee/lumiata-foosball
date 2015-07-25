@@ -20,7 +20,6 @@ angular.module('lumiataFoosballApp')
       link: function postLink(scope, element) {
         scope.element = element;
         scope.$watch('playerid', function (pid) {
-          console.log('pid:', pid);
           if (pid) {
             Players.get({id: pid}, function (player) {
               var raphael = Raphael;
@@ -42,7 +41,6 @@ angular.module('lumiataFoosballApp')
               var path = lodash.reduce(player.games, function (path, game, i) {
                 var x = Math.round(i * scope.width / player.games.length);
                 var y = Math.round((maxRank - game.newRank) * rankRatio);
-                console.log('newRank: ', game.newRank, 'y: ', y);
                 return path + 'L' + x + ',' + y;
               }, 'M0,' + Math.round((maxRank - 1200) * rankRatio));
 

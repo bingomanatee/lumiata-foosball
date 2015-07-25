@@ -17,7 +17,9 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngMaterial',
-    'ngMaterial.components'
+    'ngMaterial.components',
+    'yaru22.angular-timeago',
+    'angularMoment'
   ])
   .constant('MONGOLAB_API_KEY', '8uHmSZH355k-nFgXmWDAsHT_GTvmsATk')
   .constant('MONGOLAB_DATABASE', 'lumiata-foosball')

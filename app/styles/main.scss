@@ -1,5 +1,6 @@
 // bower:scss
 // endbower
+@import "compass";
 
 $winnerColor: #77bb00;
 $errorText: #ce002d;
@@ -18,6 +19,75 @@ $errorText: #ce002d;
 
 .view-frame {
   overflow: scroll;
+}
+
+.graph-frame {
+
+  .graph-frame__inner {
+    color: white;
+    position: relative;
+    display: block;
+    .graph-frame__graph {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    h3 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: rgba(255,255,255,0.8) !important;
+    }
+    .graph-frame__dates {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 3px;
+      width: 8rem;
+      font-size: 0.7rem;
+
+      &.graph-frame__dates--last {
+        right: 0;
+        left: auto;
+        text-align: right
+      }
+    }
+  }
+  .graph-frame__legend {
+    margin-top: -2px;
+    background-color: rgb(144, 144, 144);
+    // Needs latest Compass, add '@import "compass"' to your scss
+    // Permalink - use to edit and share this gradient:
+    // http://colorzilla.com/gradient-editor/#6e6b77+0,000000+100
+    background-color: rgb(110, 107, 119); // Old browsers
+    @include filter-gradient(#6e6b77, #000000, vertical); // IE6-9
+    @include background-image(linear-gradient(top, rgba(110, 107, 119, 1) 0%, rgba(0, 0, 0, 1) 100%));
+
+    .graph-frame__legend-item {
+      margin: 0.5em;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      background-color: black;
+      padding: 0.5em;
+      max-width: 20rem;
+      display: inline-block;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      border-top: 2px solid rgba(0, 0, 0, 0.5);
+      color: black;
+      font-weight: bold;
+      @include text-shadow(rgb(255,255,255) 1px 1px 2px,
+        rgba(255,255,255,0.25) 0 0 0 4px);
+      min-width: 8rem;
+      text-align: center;
+      font-size: 0.9rem;
+      text-wrap: none;
+      &.rank {
+        font-weight: normal;
+        font-size: 0.8rem;
+        color: rgba(0,0,0,0.25);
+        @include text-shadow(none);
+      }
+    }
+  }
 }
 
 md-sidenav md-content {
